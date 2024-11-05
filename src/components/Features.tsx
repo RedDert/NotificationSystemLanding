@@ -1,5 +1,5 @@
-import React from 'react';
-import { strings } from '../data/strings';
+import React from "react";
+import { strings } from "../data/strings";
 
 const Features: React.FC = () => {
   return (
@@ -18,4 +18,3 @@ const Features: React.FC = () => {
 };
 
 export default Features;
-

@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import { strings } from "../data/strings";
 
 const Installation: React.FC = () => {
-  const [installationContent, setInstallationContent] = useState<string | null>(null);
+  const [installationContent, setInstallationContent] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     const fetchReadme = async () => {
       try {
-        const response = await fetch(
-          'https://api.github.com/repos/RedDert/notificationSystem/readme',
-          {
-            headers: {
-              Accept: 'application/vnd.github.v3.raw',
-            },
-          }
-        );
+        const response = await fetch(strings.githubUrl, {
+          headers: {
+            Accept: "application/vnd.github.v3.raw",
+          },
+        });
 
         if (response.ok) {
           const readmeContent = await response.text();
           const installationMatch = readmeContent.match(
-            /## Installation([\s\S]*?)(## |$)/
+            /## Installation([\s\S]*?)(## |$)/,
           );
 
           if (installationMatch) {
@@ -53,4 +53,3 @@ const Installation: React.FC = () => {
 };
 
 export default Installation;
-
