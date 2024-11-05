@@ -1,0 +1,1 @@
+this is a React-Vite-TS-Tailwind project already setup, all you need to do is clone the repo and open it up in a editor of your choice, run Npm install and bamm the errors should go away. Then run Npm run dev and you should see the standard react click page just desinged with tailwinds on the App.tsx file.
