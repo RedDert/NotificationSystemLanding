@@ -1,19 +1,25 @@
-import React from "react";
-import { strings } from "../data/strings";
+import { Box, Typography, Grid, Paper } from '@mui/material';
+import { strings } from '../data/strings';
 
-const Features: React.FC = () => {
+const Features = () => {
   return (
-    <section className="py-20 bg-gray-100 text-gray-800">
-      <h2 className="text-3xl font-bold text-center mb-12"> Features </h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <Box sx={{ py: 10, bgcolor: 'background.default', color: 'text.secondary' }}>
+      <Typography variant="h2" align="center" sx={{ fontWeight: 'bold', mb: 4 }}>
+        Features
+      </Typography>
+      <Grid container spacing={3}>
         {strings.features.map((feature, index) => (
-          <div key={index} className="p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
+          <Grid item xs={12} md={4} key={index}>
+            <Paper sx={{ p: 3, boxShadow: 2, bgcolor: 'background.paper', color: 'text.secondary' }}>
+              <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 1, color: 'text.primary' }}>
+                {feature.title}
+              </Typography>
+              <Typography>{feature.description}</Typography>
+            </Paper>
+          </Grid>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Box>
   );
 };
 
