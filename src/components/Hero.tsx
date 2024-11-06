@@ -11,7 +11,7 @@ const Hero = () => {
         justifyContent: 'center',
         height: '100vh',
         bgcolor: 'primary.main',
-        color: 'text.secondary',
+        color: 'text.primary',
       }}
     >
       <Typography variant="h1" align="center" sx={{ fontWeight: 'bold', mb: 2 }}>
@@ -20,11 +20,17 @@ const Hero = () => {
       <Typography variant="h5" align="center" sx={{ mb: 3 }}>
         {strings.hero.tagline}
       </Typography>
-      <Button href={strings.githubUrl} variant="contained" sx={{ bgcolor: 'secondary.main', color: 'text.primary' }}>
-        View on GitHub
+      <Button
+      href={strings.githubUrl}
+      variant="contained"
+      sx={{ bgcolor: 'secondary.main', color: 'text.primary' }}
+      target="_blank"
+      rel="noopener noreferrer"
+      >
+      View on GitHub
       </Button>
-    </Box>
-  );
-};
+          </Box>
+        );
+      };
 
-export default Hero;
+      export default Hero;
