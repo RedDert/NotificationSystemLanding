@@ -1,12 +1,10 @@
-import React from "react";
+import { Box, Typography } from '@mui/material';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer className="py-6 bg-gray-800 text-white text-center">
-      <p>
-        &copy; {new Date().getFullYear()} Project Name. All rights reserved.
-      </p>
-    </footer>
+    <Box sx={{ py: 3, bgcolor: 'primary.main', color: 'text.primary', textAlign: 'center' }}>
+      <Typography>&copy; {new Date().getFullYear()} Nansi. All rights reserved.</Typography>
+    </Box>
   );
 };
 

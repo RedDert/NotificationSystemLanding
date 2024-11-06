@@ -24,6 +24,6 @@ export const strings = {
   ],
 
   footer: {
-    copyright: `© ${new Date().getFullYear()} Project Name. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} Nansi. All rights reserved.`,
   },
 };

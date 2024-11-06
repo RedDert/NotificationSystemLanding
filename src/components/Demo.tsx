@@ -1,18 +1,15 @@
-import React from "react";
+import { Box, Typography } from '@mui/material';
 
-const Demo: React.FC = () => {
+const Demo = () => {
   return (
-    <section className="py-20 bg-white text-gray-800">
-      <h2 className="text-3xl font-bold text-center mb-12">Demo</h2>
-      <div className="flex justify-center">
-        {/* Replace with your own video or image carousel */}
-        <img
-          src="/path/to/demo-image.png"
-          alt="Demo"
-          className="rounded-lg shadow-md"
-        />
-      </div>
-    </section>
+    <Box sx={{ py: 10, bgcolor: 'background.paper', color: 'text.secondary' }}>
+      <Typography variant="h2" align="center" sx={{ fontWeight: 'bold', mb: 3 }}>
+        Demo not avilable yet
+      </Typography>
+      <Box display="flex" justifyContent="center">
+        <Box component="img" src="/path/to/demo-image.png" alt="Demo" sx={{ borderRadius: 2, boxShadow: 2 }} />
+      </Box>
+    </Box>
   );
 };
 

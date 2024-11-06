@@ -1,15 +1,15 @@
-// src/components/Contributing.tsx
-import React from "react";
+import { Typography, Box } from '@mui/material';
 
-const Contributing: React.FC = () => {
+const Contributing = () => {
   return (
-    <section className="py-20 bg-gray-100 text-gray-800">
-      <h2 className="text-3xl font-bold text-center mb-12">Contributing</h2>
-      <p className="text-center max-w-lg mx-auto">
-        Contributions are welcome! Please refer to the repository’s contribution
-        guidelines for more information.
-      </p>
-    </section>
+    <Box sx={{ py: 10, bgcolor: 'background.default', color: 'text.secondary' }}>
+      <Typography variant="h2" align="center" sx={{ fontWeight: 'bold', mb: 3 }}>
+        Contributing
+      </Typography>
+      <Typography variant="body1" align="center" sx={{ maxWidth: 600, mx: 'auto' }}>
+        Contributions are welcome! Please refer to the repository’s contribution guidelines for more information.
+      </Typography>
+    </Box>
   );
 };
 

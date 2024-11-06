@@ -1,29 +1,34 @@
-import React from "react";
-import { techStackData } from "../data/techStackData";
+import { Box, Typography, Link } from '@mui/material';
+import { techStackData } from '../data/techStackData';
 
-const TechStack: React.FC = () => {
+const TechStack = () => {
   return (
-    <section className="py-20 bg-gray-100 text-gray-800">
-      <h2 className="text-3xl font-bold text-center mb-12">Tech Stack</h2>
-      <div className="flex justify-center gap-8 flex-wrap">
+    <Box sx={{ py: 10, bgcolor: 'background.default', color: 'text.secondary' }}>
+      <Typography variant="h2" align="center" sx={{ fontWeight: 'bold', mb: 3 }}>
+        Tech Stack
+      </Typography>
+      <Box display="flex" justifyContent="center" gap={3} flexWrap="wrap">
         {techStackData.map((tech, index) => (
-          <a
+          <Link
             key={index}
             href={tech.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center hover:opacity-80 transition duration-200"
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              '&:hover': { opacity: 0.8 },
+            }}
           >
-            <img
-              src={tech.icon}
-              alt={`${tech.name} icon`}
-              className="w-16 h-16 mb-2"
-            />
-            <span className="text-xl font-semibold">{tech.name}</span>
-          </a>
+            <Box component="img" src={tech.icon} alt={`${tech.name} icon`} sx={{ width: 64, height: 64, mb: 1 }} />
+            <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+              {tech.name}
+            </Typography>
+          </Link>
         ))}
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 };
 
