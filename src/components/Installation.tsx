@@ -1,41 +1,37 @@
-import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import { strings } from "../data/strings";
+import React, { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { strings } from '../data/strings';
 
 const Installation: React.FC = () => {
-  const [installationContent, setInstallationContent] = useState<string | null>(
-    null,
-  );
+  const [installationContent, setInstallationContent] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchReadme = async () => {
+    const fetchInstallationInstructions = async () => {
       try {
-        const response = await fetch(strings.githubUrl, {
-          headers: {
-            Accept: "application/vnd.github.v3.raw",
-          },
-        });
+        const response = await fetch(
+          `https://raw.githubusercontent.com/${strings.org}/${strings.repo}/main/README.md`
+        );
 
-        if (response.ok) {
-          const readmeContent = await response.text();
-          const installationMatch = readmeContent.match(
-            /## Installation([\s\S]*?)(## |$)/,
-          );
-
-          if (installationMatch) {
-            setInstallationContent(installationMatch[1].trim());
-          } else {
-            setInstallationContent("Installation section not found.");
-          }
-        } else {
-          setInstallationContent("Unable to load installation instructions.");
+        if (!response.ok) {
+          throw new Error('Failed to fetch installation instructions');
         }
+
+        const text = await response.text();
+
+        // Optional: Use a regex to extract only the "Installation" section
+        const installationMatch = text.match(/## Installation([\s\S]*?)(## |$)/);
+        const installationInstructions = installationMatch
+          ? installationMatch[1].trim()
+          : 'Installation section not found.';
+
+        setInstallationContent(installationInstructions);
       } catch (error) {
-        setInstallationContent("Unable to load installation instructions.");
+        console.error(error);
+        setInstallationContent('Unable to load installation instructions.');
       }
     };
 
-    fetchReadme();
+    fetchInstallationInstructions();
   }, []);
 
   return (
@@ -53,3 +49,4 @@ const Installation: React.FC = () => {
 };
 
 export default Installation;
+
