@@ -11,7 +11,7 @@ const Features = () => {
         {strings.features.map((feature, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Paper sx={{ p: 3, boxShadow: 2, bgcolor: 'background.paper', color: 'text.secondary' }}>
-              <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 1, color: 'text.primary' }}>
+              <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 1, color: 'text.secondary' }}>
                 {feature.title}
               </Typography>
               <Typography>{feature.description}</Typography>
