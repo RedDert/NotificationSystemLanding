@@ -11,13 +11,20 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AppImport } from './routes/App'
+import { Route as HomeImport } from './routes/home'
+import { Route as AboutImport } from './routes/about'
 
 // Create/Update Routes
 
-const AppRoute = AppImport.update({
-  id: '/App',
-  path: '/App',
+const HomeRoute = HomeImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutRoute = AboutImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -25,11 +32,18 @@ const AppRoute = AppImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/App': {
-      id: '/App'
-      path: '/App'
-      fullPath: '/App'
-      preLoaderRoute: typeof AppImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeImport
       parentRoute: typeof rootRoute
     }
   }
@@ -38,33 +52,38 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/App': typeof AppRoute
+  '/about': typeof AboutRoute
+  '/home': typeof HomeRoute
 }
 
 export interface FileRoutesByTo {
-  '/App': typeof AppRoute
+  '/about': typeof AboutRoute
+  '/home': typeof HomeRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/App': typeof AppRoute
+  '/about': typeof AboutRoute
+  '/home': typeof HomeRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/App'
+  fullPaths: '/about' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '/App'
-  id: '__root__' | '/App'
+  to: '/about' | '/home'
+  id: '__root__' | '/about' | '/home'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  AppRoute: typeof AppRoute
+  AboutRoute: typeof AboutRoute
+  HomeRoute: typeof HomeRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  AppRoute: AppRoute,
+  AboutRoute: AboutRoute,
+  HomeRoute: HomeRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/App"
+        "/about",
+        "/home"
       ]
     },
-    "/App": {
-      "filePath": "App.tsx"
+    "/about": {
+      "filePath": "about.tsx"
+    },
+    "/home": {
+      "filePath": "home.tsx"
     }
   }
 }
