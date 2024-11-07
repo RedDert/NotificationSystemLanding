@@ -21,15 +21,26 @@ export const strings = {
       title: "Actionable Notifications",
       description: "Directly Snooze, dismiss or reply to a notification",
     },
-
   ],
-
+  teams: [
+    {
+      name: "Developers United",
+      description: "A team dedicated to improving development workflows and tools.",
+    },
+    {
+      name: "Frontend Wizards",
+      description: "Specializing in frontend development and design magic.",
+    },
+    {
+      name: "Backend Builders",
+      description: "Focused on API development, data handling, and server architecture.",
+    },
+  ],
   footer: {
     copyright: `© ${new Date().getFullYear()} Nansi. All rights reserved.`,
   },
-  //dummy data for now
   profile: {
-    avatarUrl: '',  
+    avatarUrl: '',
     name: 'Lionel Messi',
     bio: 'The goat',
     activityTitle: 'Recent Activity',
@@ -41,8 +52,8 @@ export const strings = {
     ],
     preferencesTitle: 'Preferences',
     preferences: [
-      { label: 'Generic exemple', defaultChecked: true },
-      { label: 'Another exemple', defaultChecked: false },
+      { label: 'Generic example', defaultChecked: true },
+      { label: 'Another example', defaultChecked: false },
     ],
   },
 };

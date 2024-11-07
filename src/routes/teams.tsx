@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link, Outlet } from '@tanstack/react-router';
+import TeamList from '../components/TeamList';
 
 const activeProps = {
   style: {
@@ -17,6 +18,11 @@ const TeamsPage = () => {
           Create new team
         </Link>
       </nav>
+      
+      <div className="p-6">
+        <TeamList />
+      </div>
+      
       <Outlet />
     </>
   );
