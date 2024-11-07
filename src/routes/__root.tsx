@@ -1,6 +1,8 @@
 import { Link, Outlet, createRootRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import { Home, Info, AccountCircle } from '@mui/icons-material';
+import Groups2Icon from '@mui/icons-material/Groups2';
+
 const activeProps = {
   style: {
     fontWeight: 'bold',
@@ -26,6 +28,10 @@ export const Route = createRootRoute({
           <Link to="/about" activeProps={activeProps} className="flex items-center space-x-2 hover:text-purple-200 transition font-bold">
           <Info fontSize="small" />
             About
+          </Link>
+          <Link to="/teams" activeProps={activeProps} className="flex items-center space-x-2 hover:text-purple-200 transition font-bold">
+          <Groups2Icon fontSize="small" />
+            Teams
           </Link>
           <Link to="/profile" activeProps={activeProps} className="flex items-center space-x-2 hover:text-purple-200 transition font-bold">
           <AccountCircle fontSize="small" />

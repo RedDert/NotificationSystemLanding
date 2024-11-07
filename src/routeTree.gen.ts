@@ -11,11 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TeamsImport } from './routes/teams'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as HomeImport } from './routes/home'
 import { Route as AboutImport } from './routes/about'
 
 // Create/Update Routes
+
+const TeamsRoute = TeamsImport.update({
+  id: '/teams',
+  path: '/teams',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProfileRoute = ProfileImport.update({
   id: '/profile',
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileImport
       parentRoute: typeof rootRoute
     }
+    '/teams': {
+      id: '/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof TeamsImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
+  '/teams': typeof TeamsRoute
 }
 
 export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
+  '/teams': typeof TeamsRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,15 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
+  '/teams': typeof TeamsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/about' | '/home' | '/profile'
+  fullPaths: '/about' | '/home' | '/profile' | '/teams'
   fileRoutesByTo: FileRoutesByTo
-  to: '/about' | '/home' | '/profile'
-  id: '__root__' | '/about' | '/home' | '/profile'
+  to: '/about' | '/home' | '/profile' | '/teams'
+  id: '__root__' | '/about' | '/home' | '/profile' | '/teams'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +114,14 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   HomeRoute: typeof HomeRoute
   ProfileRoute: typeof ProfileRoute
+  TeamsRoute: typeof TeamsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   HomeRoute: HomeRoute,
   ProfileRoute: ProfileRoute,
+  TeamsRoute: TeamsRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +136,8 @@ export const routeTree = rootRoute
       "children": [
         "/about",
         "/home",
-        "/profile"
+        "/profile",
+        "/teams"
       ]
     },
     "/about": {
@@ -128,6 +148,9 @@ export const routeTree = rootRoute
     },
     "/profile": {
       "filePath": "profile.tsx"
+    },
+    "/teams": {
+      "filePath": "teams.tsx"
     }
   }
 }
