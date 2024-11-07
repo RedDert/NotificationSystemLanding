@@ -36,6 +36,12 @@ export const strings = {
       description: "Focused on API development, data handling, and server architecture.",
     },
   ],
+  newTeamForm: {
+    title: "Create a New Team",
+    namePlaceholder: "Enter team name...",
+    descriptionPlaceholder: "Describe the team's purpose...",
+    submitButton: "Create Team",
+  },
   footer: {
     copyright: `© ${new Date().getFullYear()} Nansi. All rights reserved.`,
   },
