@@ -10,7 +10,6 @@ import Footer from '../components/Footer'
 export const Route = createFileRoute('/about')({
   component: () => (
     <div className="font-sans">
-      <Hero />
       <Features />
       <Demo />
       <TechStack />
