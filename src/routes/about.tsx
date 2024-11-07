@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Hero from '../components/Hero'
 import Features from '../components/Features'
 import Demo from '../components/Demo'
 import TechStack from '../components/TechStack'
