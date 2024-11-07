@@ -20,6 +20,9 @@ const Hero = () => {
       <Typography variant="h5" align="center" sx={{ mb: 3 }}>
         {strings.hero.tagline}
       </Typography>
+      <Typography variant="h5" align="center" sx={{ mb: 3 }}>
+        {strings.hero.description}
+      </Typography>
       <Button
       href={strings.githubUrl}
       variant="contained"

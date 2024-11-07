@@ -5,6 +5,7 @@ export const strings = {
   hero: {
     title: "Nansi",
     tagline: "Not Another Notification System Implementation",
+    description: "Not yet operational :(",
     githubButton: "View on GitHub",
   },
   features: [
@@ -20,7 +21,7 @@ export const strings = {
       title: "Actionable Notifications",
       description: "Directly Snooze, dismiss or reply to a notification",
     },
-    // Add more features here as needed
+
   ],
 
   footer: {
