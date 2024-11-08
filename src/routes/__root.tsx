@@ -1,6 +1,7 @@
-import { Link, Outlet, createRootRoute, useNavigate } from '@tanstack/react-router';
-import { useEffect } from 'react';
-import { Home as HomeIcon } from '@mui/icons-material';
+import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import { Home, Info, AccountCircle } from '@mui/icons-material';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import { useTheme } from '@mui/material/styles';
 
 const activeProps = {
   style: {
@@ -10,22 +11,65 @@ const activeProps = {
 
 export const Route = createRootRoute({
   component: () => {
-    const navigate = useNavigate();
+    const theme = useTheme();
 
-    // Redirect to the App route on initial load
-    useEffect(() => {
-      navigate({ to: '/App' });
-    }, [navigate]);
+   
 
     return (
       <>
-        <nav className="flex space-x-6 p-4 bg-purple-600 text-white shadow-md">
-          <Link to="/App" activeProps={activeProps} className="flex items-center space-x-2 hover:text-purple-200 transition font-bold">
-          <HomeIcon fontSize="small" />
+        <nav
+          className="flex space-x-6 p-4 shadow-md"
+          style={{
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.text.primary,
+          }}
+        >
+          <Link
+            to="/home"
+            activeProps={activeProps}
+            className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
+            style={{ color: theme.palette.text.primary }}
+          >
+            <Home fontSize="small" />
             Home
           </Link>
+          <Link
+            to="/about"
+            activeProps={activeProps}
+            className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
+            style={{ color: theme.palette.text.primary }}
+          >
+            <Info fontSize="small" />
+            About
+          </Link>
+          <Link
+            to="/teams"
+            activeProps={activeProps}
+            className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
+            style={{ color: theme.palette.text.primary }}
+          >
+            <Groups2Icon fontSize="small" />
+            Teams
+          </Link>
+          <Link
+            to="/profile"
+            activeProps={activeProps}
+            className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
+            style={{ color: theme.palette.text.primary }}
+          >
+            <AccountCircle fontSize="small" />
+            Profile
+          </Link>
         </nav>
-        <Outlet />
+        <div
+          className="min-h-screen"
+          style={{
+            backgroundColor: theme.palette.background.default,
+            color: theme.palette.text.secondary,
+          }}
+        >
+          <Outlet />
+        </div>
       </>
     );
   },
