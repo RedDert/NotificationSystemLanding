@@ -10,7 +10,7 @@ const Hero = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        bgcolor: 'primary.main',
+        bgcolor: 'primary.dark',
         color: 'text.primary',
       }}
     >
