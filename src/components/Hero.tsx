@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Stack } from '@mui/material';
 import { strings } from '../data/strings';
 
 const Hero = () => {
@@ -23,17 +23,32 @@ const Hero = () => {
       <Typography variant="h5" align="center" sx={{ mb: 3 }}>
         {strings.hero.description}
       </Typography>
-      <Button
-      href={strings.githubUrl}
-      variant="contained"
-      sx={{ bgcolor: 'secondary.main', color: 'text.primary' }}
-      target="_blank"
-      rel="noopener noreferrer"
-      >
-      View on GitHub
-      </Button>
-          </Box>
-        );
-      };
 
-      export default Hero;
+      {/* Stack is just mui's version of flexbox, you set the row OR column and spacing like below*/}
+      <Stack 
+      direction="row" spacing={2}>
+        <Button
+          href={strings.githubUrlBackend}
+          variant="contained"
+          sx={{ bgcolor: 'secondary.main', color: 'text.primary' }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {strings.hero.githubButtonBackend}
+        </Button>
+
+        <Button
+          href={strings.githubUrlFrontend}
+          variant="contained"
+          sx={{ bgcolor: 'secondary.main', color: 'text.primary' }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {strings.hero.githubButtonFrontend}
+        </Button>
+      </Stack>
+    </Box>
+  );
+};
+
+export default Hero;
