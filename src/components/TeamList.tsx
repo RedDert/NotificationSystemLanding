@@ -12,7 +12,7 @@ const TeamList = () => {
         {strings.teams.map((team, index) => (
           <Card key={index} sx={{ boxShadow: 3, bgcolor: 'background.paper' }}>
             <CardContent>
-              <Typography variant="h5" sx={{ color: 'secondary.main', fontWeight: 'bold' }}>
+              <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
                 {team.name}
               </Typography>
               <Typography variant="body1" sx={{ mt: 1, color: 'text.secondary' }}>
