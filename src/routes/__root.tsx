@@ -1,7 +1,8 @@
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import { Link, Outlet, createRootRoute, useNavigate } from '@tanstack/react-router';
 import { Home, Info, AccountCircle } from '@mui/icons-material';
 import Groups2Icon from '@mui/icons-material/Groups2';
 import { useTheme } from '@mui/material/styles';
+import { useEffect } from 'react';
 
 const activeProps = {
   style: {
@@ -12,8 +13,14 @@ const activeProps = {
 export const Route = createRootRoute({
   component: () => {
     const theme = useTheme();
+    const navigate = useNavigate();
 
-   
+    // Redirect to /home if we're at the root path
+    useEffect(() => {
+      if (window.location.pathname === '/') {
+        navigate({ to: '/home', replace: true });
+      }
+    }, [navigate]);
 
     return (
       <>
