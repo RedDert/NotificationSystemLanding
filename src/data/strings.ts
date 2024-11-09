@@ -1,12 +1,14 @@
 export const strings = {
-  githubUrl: "https://github.com/RedDert/notificationSystem",
+  githubUrlBackend: "https://github.com/RedDert/notificationSystem",
+  githubUrlFrontend: "https://github.com/RedDert/NotificationSystemLanding",
   org: "RedDert",
   repo: "notificationSystem",
   hero: {
     title: "Nansi",
     tagline: "Not Another Notification System Implementation",
     description: "Not yet operational :(",
-    githubButton: "View on GitHub",
+    githubButtonBackend: "View on GitHub (Backend)",
+    githubButtonFrontend: "View on GitHub (Frontend)",
   },
   features: [
     {
