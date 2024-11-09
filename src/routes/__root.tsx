@@ -35,7 +35,6 @@ export const Route = createRootRoute({
             to="/home"
             activeProps={activeProps}
             className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
-            style={{ color: theme.palette.text.primary }}
           >
             <Home fontSize="small" />
             Home
@@ -44,7 +43,6 @@ export const Route = createRootRoute({
             to="/about"
             activeProps={activeProps}
             className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
-            style={{ color: theme.palette.text.primary }}
           >
             <Info fontSize="small" />
             About
@@ -53,7 +51,6 @@ export const Route = createRootRoute({
             to="/teams"
             activeProps={activeProps}
             className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
-            style={{ color: theme.palette.text.primary }}
           >
             <Groups2Icon fontSize="small" />
             Teams
@@ -62,7 +59,6 @@ export const Route = createRootRoute({
             to="/profile"
             activeProps={activeProps}
             className="flex items-center space-x-2 hover:opacity-80 transition font-bold"
-            style={{ color: theme.palette.text.primary }}
           >
             <AccountCircle fontSize="small" />
             Profile
@@ -72,7 +68,7 @@ export const Route = createRootRoute({
           className="min-h-screen"
           style={{
             backgroundColor: theme.palette.background.default,
-            color: theme.palette.text.secondary,
+            color: theme.palette.text.primary,
           }}
         >
           <Outlet />
