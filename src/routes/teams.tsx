@@ -3,6 +3,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link, Outlet } from '@tanstack/react-router';
 import TeamList from '../components/TeamList';
 import Footer from '../components/Footer';
+import { useTheme } from '@mui/material/styles';
 
 const activeProps = {
   style: {
@@ -11,10 +12,19 @@ const activeProps = {
 };
 
 const TeamsPage = () => {
+  const theme = useTheme();
+
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="flex space-x-6 p-4 bg-purple-600 text-white shadow-md">
-        <Link to="/new" activeProps={activeProps} className="flex items-center space-x-2 hover:text-purple-200 transition font-bold">
+      <nav className="flex space-x-6 p-4" style={{ backgroundColor: theme.palette.primary.dark, color: theme.palette.text.primary }}>
+        <Link 
+          to="/new" 
+          activeProps={activeProps} 
+          className="flex items-center space-x-2 transition font-bold"
+          style={{ color: theme.palette.text.primary }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = theme.palette.primary.light)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = theme.palette.text.primary)}
+        >
           <AddCircleIcon fontSize="small" />
           Create new team
         </Link>
