@@ -3,7 +3,7 @@ import { strings } from '../data/strings';
 
 const ProfileHeader = () => {
   return (
-    <Box sx={{ py: 4, bgcolor: 'primary.main', color: 'text.primary', textAlign: 'center' }}>
+    <Box sx={{ py: 4, bgcolor: 'primary.dark', color: 'text.primary', textAlign: 'center' }}>
       <Avatar
         src={strings.profile.avatarUrl}
         alt="Profile Picture"
