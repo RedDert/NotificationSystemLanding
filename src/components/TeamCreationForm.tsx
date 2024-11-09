@@ -5,11 +5,8 @@ import { strings } from '../data/strings';
 const TeamCreationForm = () => {
   const [teamName, setTeamName] = useState('');
   const [description, setDescription] = useState('');
-  const [members] = useState<string[]>([]);
 
   const handleCreateTeam = () => {
-    console.log("Creating team with:", { teamName, description, members });
-    // Placeholder for form submission logic
   };
 
   return (
