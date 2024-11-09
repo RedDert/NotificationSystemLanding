@@ -16,7 +16,7 @@ const TeamsPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="flex space-x-6 p-4" style={{ backgroundColor: theme.palette.secondary.main, color: theme.palette.text.primary }}>
+      <nav className="flex space-x-6 p-4" style={{ backgroundColor: theme.palette.primary.dark, color: theme.palette.text.primary }}>
         <Link 
           to="/new" 
           activeProps={activeProps} 
